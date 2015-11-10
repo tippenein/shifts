@@ -1,0 +1,62 @@
+name: shifts
+version: 0.0.0
+cabal-version: >=1.10
+build-type: Simple
+license: MIT
+license-file: LICENSE.md
+copyright: 2015 brady.ouren <brady.ouren@gmail.com>
+maintainer: brady.ouren <brady.ouren@gmail.com>
+synopsis: shift tracking & management
+description: shift tracking & management
+category: api
+author: brady.ouren <brady.ouren@gmail.com>
+tested-with: GHC ==7.8 GHC ==7.6
+extra-source-files:
+  README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/tippenein/shifts
+
+library
+  hs-source-dirs: src
+  exposed-modules:
+      Shifts
+    , Shifts.API
+    , Shifts.Server
+  build-depends:
+      base ==4.*
+    , servant >= 0.4
+    , servant-client >= 0.4
+    , servant-server >= 0.4
+  default-language: Haskell2010
+  ghc-prof-options: -auto-all -prof
+  ghc-options: -Wall
+
+executable shifts
+  hs-source-dirs: src
+  main-is: Main.hs
+  build-depends:
+      base -any
+    , shifts -any
+    , servant >= 0.4
+    , servant-client >= 0.4
+    , servant-server >= 0.4
+  default-language: Haskell2010
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+
+test-suite tests
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:
+      base -any
+    , shifts -any
+    , hspec ==2.*
+    , HUnit -any
+    , QuickCheck -any
+  default-language:    Haskell2010
+  other-modules:
+      Shifts
+      ShiftsSpec
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N

@@ -1,6 +1,16 @@
-module Main (main) where
+module Main where
 
-import Shifts
+import Control.Monad
+import System.Environment
 
+import qualified Control.Exception as Exception
+import Shifts.Server (runServer)
+
+-- | Main application init
 main :: IO ()
-main = do $ putStrLn "derp"
+main = do
+  let port = 8081 :: Int
+  putStrLn ("Starting on port " ++ show port ++ "...")
+  Exception.catch
+    (runServer port)
+    (\ Exception.UserInterrupt -> putStrLn "\nStopping...")

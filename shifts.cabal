@@ -24,11 +24,17 @@ library
       Shifts
     , Shifts.API
     , Shifts.Server
+    , Shifts.Types
   build-depends:
       base ==4.*
     , servant >= 0.4
     , servant-client >= 0.4
     , servant-server >= 0.4
+    , text
+    , aeson
+    , either
+    , warp
+    , wai
   default-language: Haskell2010
   ghc-prof-options: -auto-all -prof
   ghc-options: -Wall
@@ -42,6 +48,11 @@ executable shifts
     , servant >= 0.4
     , servant-client >= 0.4
     , servant-server >= 0.4
+    , text
+    , aeson
+    , either
+    , warp
+    , wai
   default-language: Haskell2010
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
 

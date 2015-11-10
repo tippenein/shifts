@@ -30,6 +30,7 @@ library
     , servant >= 0.4
     , servant-client >= 0.4
     , servant-server >= 0.4
+    , time
     , text
     , aeson
     , either
@@ -48,6 +49,7 @@ executable shifts
     , servant >= 0.4
     , servant-client >= 0.4
     , servant-server >= 0.4
+    , time
     , text
     , aeson
     , either

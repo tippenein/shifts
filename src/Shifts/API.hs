@@ -13,11 +13,17 @@ shiftsAPI = Proxy
 type ShiftsAPI =
        CurrentRoid
   :<|> ShowRoid
+  :<|> ListShifts
   -- :<|> CreateRoid
   -- :<|> UpdateRoid
   -- :<|> DestroyRoid
 
+type ListShifts = "shifts"
+    :> QueryParam "in" Text
+    :> Get '[JSON] [Shift]
+
 type CurrentRoid = "roids"
+    :> QueryParam "in" Text
     :> Get '[JSON] Eng
 
 type ShowRoid = "roids"

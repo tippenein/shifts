@@ -1,7 +1,5 @@
 module ShiftsSpec (spec) where
 
-import Shifts
-
 import Test.Hspec
 
 spec :: Spec
